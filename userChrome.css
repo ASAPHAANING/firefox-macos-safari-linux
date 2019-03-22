@@ -1,0 +1,391 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/*This style will make your browser similar to Safari.  Currently tested on MacOS Mojave */
+
+/*tabs on bottom*/
+:root[uidensity="compact"] #titlebar, :root[uidensity="compact"] #tabbrowser-tabs {
+  --tab-min-height: 24px !important;
+}
+
+#TabsToolbar {
+  -moz-box-ordinal-group: 3;
+}
+#nav-bar{
+  border-top-width: 0px !important;
+}
+#TabsToolbar .tabbrowser-tabs {
+  height: 24px !important;
+  min-height: 24px !important;
+  max-height: 24px !important;
+  border-bottom: 1px solid #000000 !important;
+}
+
+/*tab line hidden*/
+.tab-line {
+  /*display: none !important;*/
+  background-color: rgb(81, 81, 81) !important;
+  height: 0px !important;
+}
+
+/*Bookmarks Bar fix*/
+#PersonalToolbar {
+  -moz-box-ordinal-group: 2;
+  background: rgb(220, 220, 220) !important;
+  border-bottom: 1px solid #B1B1B1 !important;
+}
+
+/*Remove extra tab bar space*/
+#TabsToolbar {
+  padding-inline-start: 0px !important;
+  margin-bottom: none !important;
+}
+
+.titlebar-placeholder {
+  display: none;
+}
+
+/*full-width tabs*/
+#TabsToolbar .tabbrowser-tab[fadein]:not([pinned]) {
+  flex-grow: 1 !important;
+  min-width: 11em !important;
+  max-width: 100% !important;
+}
+
+#TabsToolbar {
+  box-shadow: none !important;
+  margin-bottom: 0px !important;
+  margin-left: 0px !important;
+  margin-right: -1px !important;
+  border-bottom: 1px solid rgb(25,25,25) !important;
+}
+
+/*Hide and show close tab button*/
+#TabsToolbar .tab-close-button {
+  -moz-box-ordinal-group: 1 !important;
+  margin-left: -5.5px !important;
+  border-radius: 2px !important;
+  transition: opacity 200ms !important;
+    /* small x */
+  list-style-image: url('data:image/svg+xml;utf8,\<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">\<line x1="4.5" y1="4.5" x2="11.5" y2="11.5" stroke="rgb(84,82,84)" stroke-width="1"/>\<line x1="4.5" y1="11.5" x2="11.5" y2="4.5" stroke="rgb(84,82,84)" stroke-width="1"/>\</svg>') !important;
+}
+
+@media (max-resolution: 1.9dppx) {
+  #TabsToolbar .tab-close-button {
+    list-style-image: url('data:image/svg+xml;utf8,\<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">\<line x1="4.5" y1="4.5" x2="11.5" y2="11.5" stroke="rgb(84,82,84)" stroke-width="1.5"/>\<line x1="4.5" y1="11.5" x2="11.5" y2="4.5" stroke="rgb(84,82,84)" stroke-width="1.5"/>\</svg>') !important;
+  }
+}
+
+#TabsToolbar tab:not(:hover) .tab-close-button {
+  opacity: 0 !important;
+}
+
+#TabsToolbar tab:hover .tab-close-button {
+  opacity: 1 !important;
+}
+
+#TabsToolbar tab .close-icon {
+  -moz-image-region: unset !important;
+}
+
+#TabsToolbar tab .close-icon:hover {
+  -moz-image-region: unset !important;
+  background-color: rgba(0,0,0,0.1) !important;
+  background-clip: padding-box !important;
+}
+
+#TabsToolbar tab .close-icon:hover:active {
+  background-color: rgba(0,0,0,0.15) !important;
+}
+
+.tabbrowser-tab::before,
+.tabbrowser-tab::after,
+.tabbrowser-tab[visuallyselected]::before,
+.tabbrowser-tab[visuallyselected]::after {
+  opacity: 1 !important;
+  border-color: rgb(92, 92, 92) !important;
+}
+
+.tabbrowser-tab:-moz-window-inactive::before,
+.tabbrowser-tab:-moz-window-inactive::after,
+.tabbrowser-tab[visuallyselected]:-moz-window-inactive::before,
+.tabbrowser-tab[visuallyselected]:-moz-window-inactive::after {
+  opacity: 1 !important;
+  border-color: rgb(62, 63, 62) !important;
+}
+
+/*Heights*/
+
+/*
+ * Change the last padding value to 5px for Windows, Linux, or if
+ * you're using the titlebar
+ */
+#nav-bar {
+  height: 38px !important;
+  padding: 0px 75px 0px 5px !important;
+}
+#tabbrowser-tabs {
+  margin-left: 0px !important;
+  height: 25px !important;
+  min-height: 25px !important;
+  max-height: 25px !important;
+}
+#TabsToolbar .tab-content > * {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+/*Colors*/
+#nav-bar {
+  background: linear-gradient(#434343, #3b3b3b) !important;
+  border-bottom: 1px solid rgb(86, 86, 86) !important;
+  border-top: 1px solid rgb(120,121,120) !important;
+}
+#nav-bar:-moz-window-inactive {
+  border-top: 1px solid rgb(77, 77, 77) !important;
+  border-bottom: 1px solid rgb(56, 57, 56) !important;
+  background: rgb(33, 33, 32) !important;
+}
+#TabsToolbar {
+  background: linear-gradient(#292929, #262626) !important;
+}
+#TabsToolbar:-moz-window-inactive {
+  background: #161616 !important;
+}
+
+.tabbrowser-tab .tab-background {
+    background: linear-gradient(#2a2a2a, #262626) !important;
+    transition: all .2s ease-in !important;
+}
+.tabbrowser-tab:-moz-window-inactive .tab-background {
+    background: #161616 !important;
+}
+
+.tabbrowser-tab:not([selected]):hover .tab-background {
+    background: rgb(34, 34, 34) !important;
+}
+.tabbrowser-tab:not([selected]):-moz-window-inactive:hover .tab-background {
+    background: rgb(20, 20, 20) !important;
+}
+.tab-background[selected="true"] {
+    background-attachment: none !important;
+    background-image: linear-gradient(#434343, #3b3b3b) !important;
+}
+.tab-background[selected="true"]:-moz-window-inactive {
+  background-image: linear-gradient(#202020, #202020) !important;
+}
+
+toolbarspring {
+  max-width: 100% !important;
+}
+
+button.dummy {
+  display: none !important;
+}
+
+#urlbar-container {
+  margin-left: -30px !important;
+  max-width: 45vw !important;
+}
+
+/*#PopupAutoCompleteRichResult {
+  --item-padding-start: 0 !important;
+  --item-padding-end: 0 !important;
+  width: 44.5vw !important;
+  max-width: 44.5vw !important;
+  margin: 0px auto !important;
+}*/
+
+#urlbar {
+  background: linear-gradient(#717171, #6e6e6e) !important;
+  border: 0px transparent solid !important;
+  box-shadow: inset 0px 1px 0px #8d8d8d !important;
+  /* 0px 1px 0px inset #767676 */
+  min-height: 24px !important;
+  height: 24px !important;
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+  color: #fff !important;
+  box-sizing: border-box;
+}
+
+#urlbar:-moz-window-inactive {
+  background: rgb(49, 50, 50) !important;
+  box-shadow: inset 0px 1px 0px rgb(62, 63, 62) !important;
+}
+
+#nav-bar toolbarbutton > .toolbarbutton-icon,
+#PanelUI-menu-button > .toolbarbutton-badge-stack,
+#downloads-button > .toolbarbutton-badge-stack {
+  background: rgb(80, 80, 80) !important;
+  box-shadow: inset 0px 1px 0px rgb(100, 100, 100) !important;
+  height: 24px !important;
+  width: 28px !important;
+  border-radius: 4px !important;
+  fill: #fff !important;
+  opacity: 1 !important;
+}
+
+.toolbarbutton-1:not(:hover):-moz-window-inactive, #main-window:not([customizing]) .toolbarbutton-1:-moz-window-inactive[disabled="true"] {
+  opacity: 1 !important;
+}
+
+#nav-bar:-moz-window-inactive toolbarbutton > .toolbarbutton-icon,
+#PanelUI-menu-button:-moz-window-inactive > .toolbarbutton-badge-stack,
+#downloads-button:-moz-window-inactive > .toolbarbutton-badge-stack {
+  background: rgb(47, 48, 48) !important;
+  box-shadow: inset 0px 1px 0px rgb(58, 59, 59) !important;
+  fill: rgb(110, 111, 111) !important;
+}
+
+#nav-bar:-moz-window-inactive toolbarbutton > .toolbarbutton-icon:hover,
+#PanelUI-menu-button:-moz-window-inactive > .toolbarbutton-badge-stack:hover,
+#downloads-button:-moz-window-inactive > .toolbarbutton-badge-stack:hover {
+  background: rgb(47, 48, 48) !important;
+  fill: #fff !important;
+}
+
+#downloads-button {
+  margin-right: 0px !important;
+}
+
+#downloads-button > .toolbarbutton-badge-stack {
+  max-width: 28px !important;
+  min-width: 28px !important;
+  display: -webkit-box !important;
+}
+
+#downloads-indicator-anchor {
+  margin-top: -2px !important;
+  transform: scale(0.88) !important;
+}
+
+#pageActionButton {
+  margin-right: 4px !important;
+}
+
+.urlbar-history-dropmarker {
+  opacity: 1 !important;
+}
+
+/*Hide Favicons, center text*/
+.tab-icon-image {
+  display: none !important;
+}
+.tabbrowser-tab[pinned]:not([busy="true"]) .tab-icon-image {
+  display: block !important;
+}
+.tab-label {
+  -moz-box-flex: 1 !important;
+  text-align: center !important;
+}
+
+/*position window controls
+#titlebar-buttonbox-container {
+  margin-left: 0px !important;
+  margin-top: 10.5px !important;
+}*/
+
+#titlebar-buttonbox-container:-moz-window-inactive {
+  opacity: 0.35 !important;
+}
+
+/* remove this weird extra separator mozilla tacks on before the page content */
+#navigator-toolbox::after {
+  display: none !important;
+}
+
+#reader-mode-button, #pageActionSeparator, #tracking-protection-icon, #identity-icon-labels {
+  display: none !important;
+}
+
+#connection-icon {
+  fill: #e9e9e9 !important;
+}
+
+#urlbar[pageproxystate="valid"] > #identity-box.verifiedIdentity > #connection-icon
+{
+  fill: var(--urlbar-separator-color) !important;
+}
+
+#urlbar[focused="true"] {
+  -moz-appearance: none !important;
+  box-shadow: rgb(50, 114, 155) 0px 0px 0px 3px!important;
+  border: 1px solid rgb(104, 136, 156) !important;
+}
+
+.tabs-newtab-button > .toolbarbutton-icon {
+  width: 24px !important;
+}
+
+/* TABS: on bottom */
+#navigator-toolbox toolbar:not(#nav-bar):not(#toolbar-menubar) {-moz-box-ordinal-group:10}
+#TabsToolbar {-moz-box-ordinal-group:1000!important}
+
+#TabsToolbar {
+ position: absolute !important;
+ bottom: 17px !important;
+ width: 108vw !important;
+}
+
+#tabbrowser-tabs {
+  width: 108vw !important;
+}
+#main-window:not([chromehidden*="toolbar"]) #navigator-toolbox {padding-bottom: var(--tab-min-height) !important;}
+
+/* TABS: height */
+:root {
+ --tab-toolbar-navbar-overlap: 0px !important;
+ --tab-min-height: 25px !important; /* adjust to suit your needs */
+}
+:root #tabbrowser-tabs {
+ --tab-min-height: 25px !important; /* needs to be the same as above under :root */
+ --tab-min-width: 80px !important;
+}
+
+#TabsToolbar {
+ height: var(--tab-min-height) !important;
+ margin-bottom: 1px !important;
+ box-shadow: ThreeDShadow 0 -1px inset, -moz-dialog 0 1px !important;
+ background-color: var(--toolbar-bgcolor) !important;
+}
+
+#tabbrowser-tabs,
+#tabbrowser-tabs > .tabbrowser-arrowscrollbox,
+.tabbrowser-tabs[positionpinnedtabs] > .tabbrowser-tab[pinned] {
+  min-height: var(--tab-min-height) !important;
+  max-height: var(--tab-min-height) !important;
+}
+
+/* drag space */
+.titlebar-spacer[type="pre-tabs"],
+.titlebar-spacer[type="post-tabs"] {
+  width: 40px;
+}
+
+/* Override vertical shifts when moving a tab */
+#navigator-toolbox[movingtab] > #titlebar > #TabsToolbar {
+  padding-bottom: unset !important;
+}
+#navigator-toolbox[movingtab] #tabbrowser-tabs {
+  padding-bottom: unset !important;
+  margin-bottom: unset !important;
+}
+#navigator-toolbox[movingtab] > #nav-bar {
+  margin-top: unset !important;
+}
+
+/* hide windows-controls */
+#TabsToolbar #window-controls {display:none!important;}
+
+/* move caption buttons to right of Tab bar */
+#main-window[tabsintitlebar]:not([inFullscreen="true"]) #toolbar-menubar[autohide="true"] ~ #TabsToolbar .titlebar-buttonbox-container {
+ position: fixed !important;
+ right: 0 !important;
+ top: calc(20px - var(--tab-min-height)) !important;
+ display: block !important;
+ visibility: visible !important;
+ z-index: 9000 !important;
+}
+#toolbar-menubar[autohide="true"] ~ #TabsToolbar {padding-right: 100px !important;}
