@@ -127,9 +127,9 @@
 }
 #tabbrowser-tabs {
   margin-left: 0px !important;
-  height: 25px !important;
-  min-height: 25px !important;
-  max-height: 25px !important;
+  height: 24px !important;
+  min-height: 24px !important;
+  max-height: 24px !important;
 }
 #TabsToolbar .tab-content > * {
   margin-top: 0px !important;
@@ -325,22 +325,23 @@ button.dummy {
 
 #TabsToolbar {
  position: absolute !important;
- bottom: 17px !important;
- width: 108vw !important;
+ bottom: 0px !important;
+ width: 107vw !important;
 }
 
 #tabbrowser-tabs {
-  width: 108vw !important;
+  width: 107vw !important;
 }
-#main-window:not([chromehidden*="toolbar"]) #navigator-toolbox {padding-bottom: var(--tab-min-height) !important;}
+#main-window:not([chromehidden*="toolbar"]) #navigator-toolbox {padding-bottom: calc(32px - var(--tab-min-height)) !important;}
 
 /* TABS: height */
 :root {
  --tab-toolbar-navbar-overlap: 0px !important;
- --tab-min-height: 25px !important; /* adjust to suit your needs */
+ --tab-min-height: 24px !important; /* adjust to suit your needs */
+
 }
 :root #tabbrowser-tabs {
- --tab-min-height: 25px !important; /* needs to be the same as above under :root */
+ --tab-min-height: 24px !important; /* needs to be the same as above under :root */
  --tab-min-width: 80px !important;
 }
 
@@ -389,3 +390,27 @@ button.dummy {
  z-index: 9000 !important;
 }
 #toolbar-menubar[autohide="true"] ~ #TabsToolbar {padding-right: 100px !important;}
+
+/**
+ * Hide the bar with only 1 tab.
+ *
+ * */
+
+#tabbrowser-tabs, #tabbrowser-tabs > .tabbrowser-arrowscrollbox {
+	min-height: 0 !important;
+}
+
+/* Thanks to @Speravir for making it work again in the latest versions. */
+#tabbrowser-tabs tab[first-visible-tab="true"][last-visible-tab="true"] {
+	visibility: collapse;
+}
+
+/* I don't use tabs so I just hide the new tab button. You should be able to use a similar trick as the rule above with
+css siblings selectors if you want to keep it when the tab bar is visible. */
+#tabbrowser-tabs .tabs-newtab-button {
+	visibility: collapse !important;
+}
+
+#tabbrowser-tabs tab {
+	min-height: var(--tab-min-height)
+}
